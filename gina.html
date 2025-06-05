@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria Gina</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#014f2d',
+                        secondary: '#41271b',
+                        accent: '#bf0222',
+                        light: '#fff6ea',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        playfair: ['"Playfair Display"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(1, 79, 45, 0.842), rgba(65, 39, 27, 0.7)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .carousel-item {
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item.active {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        
+        .pizza-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            
+        }
+        
+        .delivery-btn:hover {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #41271b, transparent);
+        }
+        .mg-top-10{
+            margin-top: -10px;
+        }
+    </style>
+</head>
+<body class="font-poppins bg-light text-secondary">
+   
+    <header class="sticky top-0 z-50 bg-primary text-light shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center mg-top-10">
+               <img src="../img/identidade_visual_-_Gina_Pizzas-removebg-preview.png" alt="Pizzaria Gina" width="200px">
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-accent transition">Início</a>
+                <a href="#menu" class="hover:text-accent transition">Cardápio</a>
+                <a href="#about" class="hover:text-accent transition">Sobre</a>
+                <a href="#contact" class="hover:text-accent transition">Contato</a>
+            </nav>
+            <button class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section id="home" class="hero-section text-light py-20 md:py-32 flex items-center">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-6xl font-playfair font-bold mb-4">Somos a Itália em cada pedaço</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Ingredientes frescos e receitas tradicionais desde 1985</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#menu" class="bg-accent hover:bg-red-800 px-8 py-3 rounded-full font-bold transition">Ver Cardápio</a>
+                <a href="#delivery" class="bg-secondary hover:bg-brown-800 px-8 py-3 rounded-full font-bold transition">Pedir Agora</a>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-playfair font-bold text-center mb-12 text-primary">Nossas Especialidades</h2>
+            
+            <div class="relative max-w-4xl mx-auto">
+                <div class="carousel-container overflow-hidden relative h-64 md:h-96">
+                    <div class="carousel-track flex transition-transform duration-300">
+                        <div class="carousel-item w-full flex-shrink-0">
+                            <div class="flex flex-col md:flex-row items-center">
+                                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1081&q=80" 
+                                     alt="Pizza Margherita" 
+                                     class="w-full md:w-1/2 h-64 md:h-96 object-cover rounded-lg shadow-lg">
+                                <div class="md:ml-8 mt-4 md:mt-0 text-center md:text-left">
+                                    <h3 class="text-2xl font-playfair font-bold text-accent">Margherita</h3>
+                                    <p class="mt-2">Molho de tomate, mussarela fresca, manjericão e azeite de oliva extra virgem.</p>
+                                    <p class="mt-4 font-bold text-primary">R$ 70,80</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item w-full flex-shrink-0">
+                            <div class="flex flex-col md:flex-row items-center">
+                                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                     alt="Pizza Pepperoni" 
+                                     class="w-full md:w-1/2 h-64 md:h-96 object-cover rounded-lg shadow-lg">
+                                <div class="md:ml-8 mt-4 md:mt-0 text-center md:text-left">
+                                    <h3 class="text-2xl font-playfair font-bold text-accent">Pepperoni</h3>
+                                    <p class="mt-2">Molho de tomate, mussarela e pepperoni.</p>
+                                    <p class="mt-4 font-bold text-primary">R$ 80,80</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item w-full flex-shrink-0">
+                            <div class="flex flex-col md:flex-row items-center">
+                                <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                                     alt="Pizza Quatro Queijos" 
+                                     class="w-full md:w-1/2 h-64 md:h-96 object-cover rounded-lg shadow-lg">
+                                <div class="md:ml-8 mt-4 md:mt-0 text-center md:text-left">
+                                    <h3 class="text-2xl font-playfair font-bold text-accent">Quatro Queijos</h3>
+                                    <p class="mt-2">Mussarela, gorgonzola, parmesão e provolone com azeitonas pretas.</p>
+                                    <p class="mt-4 font-bold text-primary">R$ 83,80</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-primary text-light p-2 rounded-full shadow-lg hover:bg-green-800 transition">
+                    <i class="fas fa-chevron-left text-xl"></i>
+                </button>
+                <button class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-primary text-light p-2 rounded-full shadow-lg hover:bg-green-800 transition">
+                    <i class="fas fa-chevron-right text-xl"></i>
+                </button>
+                
+                <div class="flex justify-center mt-6 space-x-2">
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="menu" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-playfair font-bold text-center mb-4 text-primary">Nosso Cardápio</h2>
+            <div class="divider w-32 mx-auto mb-12"></div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="pizza-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="img/pizza-calabrea.png"
+                         alt="Pizza Calabresa" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-playfair font-bold text-accent">Calabresa</h3>
+                        <p class="mt-2 text-gray-600">Molho de tomate, calabresa fatiada e cebola.</p>
+                        <p class="mt-4 font-bold text-primary">R$ 68,80</p>
+                    </div>
+                </div>
+                
+                
+                <div class="pizza-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="../img/Pizza-de-Frango.jpg" 
+                         alt="Pizza de Frango com Catupiry" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-playfair font-bold text-accent">Frango</h3>
+                        <p class="mt-2 text-gray-600">Molho de tomate, frango desfiado, catupiry, milho e cebola.</p>
+                        <p class="mt-4 font-bold text-primary">R$ 78,80</p>
+                    </div>
+                </div>
+                
+                
+                <div class="pizza-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="img/Pizza-Portuguesa.png"
+                         alt="Pizza Portuguesa" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-playfair font-bold text-accent">Portuguesa</h3>
+                        <p class="mt-2 text-gray-600">Molho de tomate, mussarela, presunto, ovos, cebola e ervilha.</p>
+                        <p class="mt-4 font-bold text-primary">R$ 77,80</p>
+                    </div>
+                </div>
+                
+                 
+                 <div class="pizza-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="../img/pizza-vegetariana.webp" 
+                         alt="Pizza Vegetariana" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-playfair font-bold text-accent">Vegetariana</h3>
+                        <p class="mt-2 text-gray-600">Molho de tomate, mussarela, cebola, pimentão e champignon.</p>
+                        <p class="mt-4 font-bold text-primary">R$75,80</p> 
+                    </div>
+                </div>
+                
+                
+                <div class="pizza-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="img/pizza-napolitana.png"
+                         alt="Pizza Napolitana" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-playfair font-bold text-accent">Napolitana</h3>
+                        <p class="mt-2 text-gray-600">Molho de tomate, mussarela , tomate e parmesão.</p>
+                        <p class="mt-4 font-bold text-primary">R$ 62,90</p>
+                    </div>
+                </div>
+                
+                
+                <div class="pizza-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1613564834361-9436948817d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1643&q=80" 
+                         alt="Pizza Especial da Casa" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-playfair font-bold text-accent">Pizzaiolo</h3>
+                        <p class="mt-2 text-gray-600"> Mussarela, calabresa, ovo, palmito, milho e molho de pimenta</p>
+                        <p class="mt-4 font-bold text-primary">R$ 77,80</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-primary hover:bg-green-800 text-light px-8 py-3 rounded-full font-bold transition">Ver Cardápio Completo</a>
+            </div>
+        </div>
+    </section>
+
+ 
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Forno a lenha" 
+                         class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-playfair font-bold mb-6 text-primary">Nossa História</h2>
+                    <p class="mb-4">Fundada em 1985 pelo mestre pizzaiolo Antonio Rossi, a Pizzaria Sapore Antico traz o autêntico sabor da Itália para o Brasil. Com receitas passadas de geração em geração, mantemos viva a tradição da pizza artesanal.</p>
+                    <p class="mb-4">Nossos ingredientes são selecionados cuidadosamente, desde o tomate San Marzano até a mussarela de búfala importada da Campânia. Tudo preparado em nosso forno a lenha que atinge a temperatura perfeita para uma massa crocante e saborosa.</p>
+                    <p>Visite-nos e experimente o verdadeiro sabor da Itália em cada fatia!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="delivery" class="py-16 bg-primary text-light">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-playfair font-bold mb-6">Peça pelo Delivery</h2>
+            <p class="max-w-2xl mx-auto mb-8">Agora você pode saborear nossas pizzas no conforto da sua casa. Peça pelo seu aplicativo favorito!</p>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#" class="delivery-btn bg-white text-secondary px-6 py-3 rounded-full font-bold flex items-center hover:shadow-lg transition">
+                    <i class="fab fa-whatsapp text-2xl mr-2 text-green-500"></i> WhatsApp
+                </a>
+                <a href="#" class="delivery-btn bg-white text-secondary px-6 py-3 rounded-full font-bold flex items-center hover:shadow-lg transition">
+                    <i class="fas fa-motorcycle text-2xl mr-2 text-red-500"></i> App
+                </a>
+
+                </a>
+                <a href="#" class="delivery-btn bg-white text-secondary px-6 py-3 rounded-full font-bold flex items-center hover:shadow-lg transition">
+                    <i class="fas fa-phone-alt text-2xl mr-2 text-blue-500"></i> Telefone
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-playfair font-bold text-center mb-12 text-primary">Nosso Endereço</h2>
+           
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-playfair font-bold mb-4 text-accent">Informações</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <p>Av. Cmte. Sampaio, 794 - Km 18,<br> Osasco - SP, 06192-010</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt text-primary mr-3"></i>
+                            <p>(11) 3608-7350</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <p>pizzaria@gina.com.br</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-primary mr-3"></i>
+                            <p>Terça a Domingo<br>18:30 - 23:00</p>
+                        </div>
+                    </div>
+                   
+                    <h3 class="text-xl font-playfair font-bold mt-8 mb-4 text-accent">Redes Sociais</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-primary hover:text-accent text-2xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-primary hover:text-accent text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-primary hover:text-accent text-2xl"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+               
+                <div class="md:w-1/2">
+                    <iframe
+                    src="https://www.google.com/maps?q=Av.+Cmte.+Sampaio,+794+-+Km+18,+Osasco+-+SP,+06192-010&output=embed"
+                    width="100%"
+                    height="100%"
+                    style="min-height: 300px; border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    class="rounded-lg shadow-lg">
+                </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="bg-secondary text-light py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-pizza-slice text-2xl text-accent mr-2"></i>
+                        <h3 class="text-xl font-playfair font-bold">Gina</h3>
+                    </div>
+                    <p class="mt-2 text-sm">Autêntica pizza italiana desde 2000</p>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p>&copy; 2025 Pizzaria Gina. Todos os direitos reservados.</p>
+                    <p class="text-xs mt-2">Desenvolvido com <i class="fas fa-heart text-accent"></i> para amantes de pizza</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.carousel-track');
+            const items = document.querySelectorAll('.carousel-item');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            
+            let currentIndex = 0;
+            const itemCount = items.length;
+            
+            function updateCarousel() {
+                const offset = -currentIndex * 100;
+                track.style.transform = `translateX(${offset}%)`;
+                
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('bg-primary', index === currentIndex);
+                    dot.classList.toggle('bg-gray-300', index !== currentIndex);
+                });
+                
+               
+                items.forEach((item, index) => {
+                    item.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            function goToIndex(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+            
+            function goToPrev() {
+                currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+                updateCarousel();
+            }
+            
+            function goToNext() {
+                currentIndex = (currentIndex + 1) % itemCount;
+                updateCarousel();
+            }
+            
+           
+            prevBtn.addEventListener('click', goToPrev);
+            nextBtn.addEventListener('click', goToNext);
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => goToIndex(index));
+            });
+            
+            
+            setInterval(goToNext, 5000);
+            
+           
+            updateCarousel();
+        });
+    </script>
+</body>
+</html>
